@@ -1,11 +1,12 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
 import NebulaCanvas from '@/components/canvas/NebulaCanvas'
 import FloatingElements from '@/components/animations/FloatingElements'
 import WaveBackground from '@/components/animations/WaveBackground'
+import { useSurveyStore } from '@/store/survey'
 import { Coordinate } from '@/types'
 
 interface ArchiveData {
@@ -18,6 +19,8 @@ export default function ArchivePage() {
   const [archiveData, setArchiveData] = useState<ArchiveData | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const router = useRouter()
+  const { reset } = useSurveyStore()
 
   useEffect(() => {
     const fetchArchiveData = async () => {
@@ -132,12 +135,15 @@ export default function ArchivePage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
         >
-          <Link
-            href="/"
+          <button
+            onClick={() => {
+              reset()
+              router.push('/')
+            }}
             className="inline-block px-6 py-3 bg-blue-600/20 hover:bg-blue-600/30 border border-blue-400/30 rounded-full text-blue-200 transition-all duration-300 hover:scale-105"
           >
             ← 처음으로 돌아가기
-          </Link>
+          </button>
         </motion.div>
       </motion.div>
     </div>
