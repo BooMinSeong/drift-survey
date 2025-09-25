@@ -75,14 +75,6 @@ export default function SurveyPage() {
     <div className="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 relative overflow-hidden">
       <FloatingElements />
 
-      {/* Background Canvas */}
-      <div className="absolute inset-0 opacity-30 pointer-events-none">
-        <CanvasGraph
-          coordinates={coordinates}
-          animateNewPoint={isAnimating}
-        />
-      </div>
-
       {/* Content */}
       <div className="relative z-10 flex flex-col min-h-screen">
         {/* Question Section */}
@@ -94,6 +86,20 @@ export default function SurveyPage() {
               totalQuestions={totalQuestions}
             />
           </div>
+        </div>
+
+        {/* Coordinate Visualization Area */}
+        <div className="h-48 mx-4 mb-6 relative bg-slate-900/60 backdrop-blur-sm rounded-2xl border border-slate-700/50">
+          <CanvasGraph
+            coordinates={coordinates}
+            animateNewPoint={isAnimating}
+            className="rounded-2xl"
+          />
+          {coordinates.length === 0 && (
+            <div className="absolute inset-0 flex items-center justify-center text-slate-500 text-sm">
+              답변할 때마다 점이 이곳에 그려집니다
+            </div>
+          )}
         </div>
 
         {/* Answer Section */}
