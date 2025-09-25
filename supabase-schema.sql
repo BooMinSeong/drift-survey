@@ -2,7 +2,7 @@
 
 -- 1. Create surveys table
 CREATE TABLE surveys (
-    id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+    id VARCHAR(255) PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
     questions JSONB NOT NULL,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
@@ -13,7 +13,7 @@ CREATE TABLE surveys (
 CREATE TABLE responses (
     id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
     user_session UUID NOT NULL,
-    survey_id UUID REFERENCES surveys(id) ON DELETE CASCADE,
+    survey_id VARCHAR(255) REFERENCES surveys(id) ON DELETE CASCADE,
     answers JSONB NOT NULL,
     coordinates POINT[] NOT NULL,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
@@ -42,7 +42,7 @@ INSERT INTO surveys (id, title, questions) VALUES (
         "questions": [
             {
                 "id": "movement",
-                "text": "당신에게 '움직임'을 표현하는 단어는?",
+                "text": "당신에게 \"움직임\"을 표현하는 단어는?",
                 "answers": [
                     {"id": "ripple", "text": "파문", "coordinates": {"x": 0.2, "y": 0.8}},
                     {"id": "vibration", "text": "진동", "coordinates": {"x": 0.7, "y": 0.6}},
@@ -53,7 +53,7 @@ INSERT INTO surveys (id, title, questions) VALUES (
             },
             {
                 "id": "boundary",
-                "text": "기억 속에서 가장 인상적인 '경계'는?",
+                "text": "기억 속에서 가장 인상적인 \"경계\"는?",
                 "answers": [
                     {"id": "horizon", "text": "수평선", "coordinates": {"x": 0.8, "y": 0.2}},
                     {"id": "threshold", "text": "문턱", "coordinates": {"x": 0.3, "y": 0.7}},
@@ -64,7 +64,7 @@ INSERT INTO surveys (id, title, questions) VALUES (
             },
             {
                 "id": "flow",
-                "text": "당신에게 '흐름'이란?",
+                "text": "당신에게 \"흐름\"이란?",
                 "answers": [
                     {"id": "river", "text": "강물", "coordinates": {"x": 0.1, "y": 0.6}},
                     {"id": "wind", "text": "바람", "coordinates": {"x": 0.7, "y": 0.8}},
@@ -75,7 +75,7 @@ INSERT INTO surveys (id, title, questions) VALUES (
             },
             {
                 "id": "space",
-                "text": "가장 편안한 '공간'은?",
+                "text": "가장 편안한 \"공간\"은?",
                 "answers": [
                     {"id": "ocean", "text": "바다", "coordinates": {"x": 0.2, "y": 0.3}},
                     {"id": "forest", "text": "숲", "coordinates": {"x": 0.6, "y": 0.7}},
