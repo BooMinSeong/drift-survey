@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion'
+
 interface QuestionCardProps {
   question: string
   questionNumber: number
@@ -7,13 +9,26 @@ interface QuestionCardProps {
 export default function QuestionCard({ question, questionNumber, totalQuestions }: QuestionCardProps) {
   return (
     <div className="text-center text-white space-y-4">
-      <div className="text-sm text-slate-400">
-        {questionNumber} / {totalQuestions}
-      </div>
 
-      <h2 className="text-2xl md:text-3xl font-light leading-relaxed">
+      <motion.h2
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{
+          opacity: 1,
+          scale: 1,
+          x: [0, 2, -2, 0]
+        }}
+        transition={{
+          duration: 0.6,
+          x: {
+            duration: 5,
+            repeat: Infinity,
+            ease: 'easeInOut'
+          }
+        }}
+        className="text-xl font-light leading-relaxed"
+      >
         {question}
-      </h2>
+      </motion.h2>
 
       {/* Progress indicator */}
       <div className="w-full bg-slate-700/30 rounded-full h-1">

@@ -78,8 +78,8 @@ export default function SurveyPage() {
       {/* Content */}
       <div className="relative z-10 flex flex-col min-h-screen">
         {/* Question Section */}
-        <div className="flex-1 flex items-center justify-center p-4">
-          <div className="max-w-2xl mx-auto w-full space-y-12">
+        <div className="flex-1 flex items-center justify-center">
+          <div className="w-full space-y-12 px-4">
             <QuestionCard
               question={currentQuestion.text}
               questionNumber={currentQuestionIndex + 1}
@@ -89,21 +89,16 @@ export default function SurveyPage() {
         </div>
 
         {/* Coordinate Visualization Area */}
-        <div className="h-48 mx-4 mb-6 relative bg-slate-900/60 backdrop-blur-sm rounded-2xl border border-slate-700/50">
+        <div className="w-full h-[375px] mb-12 relative z-10">
           <CanvasGraph
             coordinates={coordinates}
             animateNewPoint={isAnimating}
-            className="rounded-2xl"
+            className=""
           />
-          {coordinates.length === 0 && (
-            <div className="absolute inset-0 flex items-center justify-center text-slate-500 text-sm">
-              답변할 때마다 점이 이곳에 그려집니다
-            </div>
-          )}
         </div>
 
         {/* Answer Section */}
-        <div className="pb-24">
+        <div className="pb-32 relative z-20">
           <AnswerBubbles
             answers={currentQuestion.answers}
             selectedAnswerId={selectedAnswer?.id || null}
