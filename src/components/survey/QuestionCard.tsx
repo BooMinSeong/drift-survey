@@ -25,7 +25,7 @@ export default function QuestionCard({ question, questionNumber, totalQuestions 
             ease: 'easeInOut'
           }
         }}
-        className="text-xl font-light leading-relaxed"
+        className="text-lg sm:text-xl lg:text-2xl font-light leading-relaxed"
       >
         {question}
       </motion.h2>

@@ -18,7 +18,7 @@ export default function FlowButton({
       onClick={onClick}
       disabled={disabled || isLoading}
       className={`
-        absolute bottom-8 right-4 z-50
+        absolute bottom-6 sm:bottom-8 right-4 sm:right-6 z-50
         px-6 py-3 rounded-full
         font-medium text-base
         transition-all duration-300

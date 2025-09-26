@@ -48,7 +48,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${pretendard.variable} ${pretendardMono.variable} antialiased w-[375px] mx-auto min-h-screen`}
+        className={`${pretendard.variable} ${pretendardMono.variable} antialiased w-full max-w-sm mx-auto min-h-screen`}
       >
         {children}
       </body>

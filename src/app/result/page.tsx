@@ -78,7 +78,7 @@ export default function ResultPage() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-3xl font-light"
+          className="text-2xl sm:text-3xl lg:text-4xl font-light"
         >
           당신의 표류의 흔적입니다
         </motion.h2>
@@ -87,7 +87,7 @@ export default function ResultPage() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="w-full h-[375px] relative"
+          className="w-full h-[min(375px,80vw)] relative"
         >
           <CanvasGraph
             coordinates={coordinates}

@@ -89,7 +89,7 @@ export default function SurveyPage() {
         </div>
 
         {/* Coordinate Visualization Area */}
-        <div className="w-full h-[375px] mb-12 relative z-10">
+        <div className="w-full h-[min(375px,80vw)] mb-12 relative z-10">
           <CanvasGraph
             coordinates={coordinates}
             animateNewPoint={isAnimating}

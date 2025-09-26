@@ -29,7 +29,7 @@ export default function CoverPage() {
               ease: 'easeInOut'
             }
           }}
-          className="text-4xl font-light tracking-wider"
+          className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-wider"
         >
           표류
         </motion.h1>
@@ -51,7 +51,7 @@ export default function CoverPage() {
               repeat: Infinity,
               ease: 'easeInOut',
             }}
-            className="text-slate-300 text-base font-light"
+            className="text-slate-300 text-sm sm:text-base lg:text-lg font-light"
           >
             당신만의 표류의 흔적을 남겨보세요
           </motion.p>
