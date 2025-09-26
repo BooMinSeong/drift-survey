@@ -70,7 +70,7 @@ export default function ArchivePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 flex flex-col items-center justify-center p-4 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 flex flex-col items-center justify-center relative overflow-hidden">
       <WaveBackground />
       <FloatingElements />
 
@@ -78,7 +78,7 @@ export default function ArchivePage() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="max-w-6xl mx-auto text-center text-white space-y-8 relative z-10"
+        className="w-full text-center text-white space-y-8 relative z-10 px-4"
       >
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -86,8 +86,8 @@ export default function ArchivePage() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="space-y-4"
         >
-          <h2 className="text-4xl font-light">표류 아카이브</h2>
-          <p className="text-slate-300 text-lg">
+          <h2 className="text-3xl font-light">표류 아카이브</h2>
+          <p className="text-slate-300 text-base">
             모든 방문자들이 남긴 표류의 흔적입니다
           </p>
 
@@ -103,13 +103,13 @@ export default function ArchivePage() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="bg-slate-900/30 backdrop-blur-sm border border-slate-600/20 rounded-lg p-4 min-h-[600px] relative"
+          className="w-full h-[375px] relative"
         >
           {archiveData?.coordinates && archiveData.coordinates.length > 0 ? (
             <>
               <NebulaCanvas
                 coordinates={archiveData.coordinates}
-                className="rounded-lg"
+                className=""
               />
 
               {/* Overlay info */}

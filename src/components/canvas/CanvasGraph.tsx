@@ -104,7 +104,7 @@ export default function CanvasGraph({
   return (
     <canvas
       ref={canvasRef}
-      className={`w-full h-full ${className}`}
+      className={`w-full h-full relative z-0 ${className}`}
       style={{ background: 'transparent' }}
     />
   )

@@ -1,15 +1,38 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const pretendard = localFont({
+  src: [
+    {
+      path: "./fonts/Pretendard-Regular.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/Pretendard-Medium.otf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "./fonts/Pretendard-SemiBold.otf",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "./fonts/Pretendard-Bold.otf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-pretendard",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const pretendardMono = localFont({
+  src: "./fonts/Pretendard-Regular.otf",
+  variable: "--font-pretendard-mono",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -25,7 +48,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${pretendard.variable} ${pretendardMono.variable} antialiased w-[375px] mx-auto min-h-screen`}
       >
         {children}
       </body>

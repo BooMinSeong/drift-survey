@@ -65,20 +65,20 @@ export default function ResultPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 flex flex-col items-center justify-center p-4 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 flex flex-col items-center justify-center relative overflow-hidden">
       <FloatingElements />
 
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="max-w-4xl mx-auto text-center text-white space-y-8 relative z-10"
+        className="w-full text-center text-white space-y-8 relative z-10 px-4"
       >
         <motion.h2
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-4xl font-light"
+          className="text-3xl font-light"
         >
           당신의 표류의 흔적입니다
         </motion.h2>
@@ -87,11 +87,11 @@ export default function ResultPage() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="bg-slate-800/30 backdrop-blur-sm border border-slate-600/30 rounded-lg p-4 min-h-[400px] relative"
+          className="w-full h-[375px] relative"
         >
           <CanvasGraph
             coordinates={coordinates}
-            className="rounded-lg"
+            className=""
           />
 
           {/* Overlay info */}

@@ -10,10 +10,10 @@ interface AnswerBubblesProps {
 
 export default function AnswerBubbles({ answers, selectedAnswerId, onSelect }: AnswerBubblesProps) {
   return (
-    <div className="w-full">
+    <div className="w-full relative z-20">
       {/* Horizontal scrollable container */}
-      <div className="overflow-x-auto pb-4">
-        <div className="flex space-x-4 min-w-max px-4">
+      <div className="overflow-x-auto overflow-y-visible pt-6 pb-4 snap-x snap-mandatory">
+        <div className="flex space-x-6 px-8">
           {answers.map((answer) => {
             const isSelected = selectedAnswerId === answer.id
 
@@ -22,8 +22,8 @@ export default function AnswerBubbles({ answers, selectedAnswerId, onSelect }: A
                 key={answer.id}
                 onClick={() => onSelect(answer)}
                 className={`
-                  flex-shrink-0 px-6 py-4 rounded-full border-2 transition-all duration-300
-                  min-w-[120px] text-center font-medium
+                  flex-shrink-0 px-8 py-6 rounded-full border-2 transition-all duration-300
+                  w-[280px] text-center font-medium snap-center transform
                   ${
                     isSelected
                       ? 'bg-blue-600/30 border-blue-400 text-blue-200 scale-105'

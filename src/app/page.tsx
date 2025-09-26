@@ -7,16 +7,29 @@ import WaveBackground from '@/components/animations/WaveBackground'
 
 export default function CoverPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 flex flex-col items-center justify-center p-4 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 flex flex-col items-center justify-center relative overflow-hidden">
       <WaveBackground />
       <FloatingElements />
 
-      <div className="max-w-md mx-auto text-center text-white space-y-8 relative z-10">
+      <div className="w-full text-center text-white space-y-8 relative z-10 px-4">
         <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="text-6xl font-light tracking-wider"
+          initial={{ opacity: 0, y: 30, scale: 0.8 }}
+          animate={{
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            rotateZ: [0, 1, -1, 0]
+          }}
+          transition={{
+            duration: 1.2,
+            delay: 0.2,
+            rotateZ: {
+              duration: 6,
+              repeat: Infinity,
+              ease: 'easeInOut'
+            }
+          }}
+          className="text-4xl font-light tracking-wider"
         >
           표류
         </motion.h1>
@@ -29,14 +42,16 @@ export default function CoverPage() {
         >
           <motion.p
             animate={{
-              y: [0, -2, 0],
+              y: [0, -8, 0],
+              scale: [1, 1.02, 1],
+              opacity: [0.8, 1, 0.8],
             }}
             transition={{
-              duration: 4,
+              duration: 3,
               repeat: Infinity,
               ease: 'easeInOut',
             }}
-            className="text-slate-300 text-lg font-light"
+            className="text-slate-300 text-base font-light"
           >
             당신만의 표류의 흔적을 남겨보세요
           </motion.p>
